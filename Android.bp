@@ -7,6 +7,7 @@ soong_config_module_type {
         "headless",
         "llvmsa",
         "gralloc4",
+        "oplus_udfps",
         "default",
         "var3",
         "llvmcov",
@@ -23,6 +24,7 @@ soong_config_module_type {
         "ldflags",
         "native_coverage",
 	"vendor",
+        "include_dirs",
     ],
 }
 
@@ -140,6 +142,13 @@ qtidisplay_cc_defaults {
         },
         gralloc4: {
             cflags: ["-DTARGET_USES_GRALLOC4"],
+        },
+        oplus_udfps: {
+            cflags: [
+                "-DCONNECTOR_PROP_UDFPS",
+                "-DOPLUS_FINGERPRINT_MASK",
+            ],
+            include_dirs: ["frameworks/native/services/surfaceflinger/CompositionEngine/include/compositionengine"],
         },
         smmu_proxy: {
             cflags: ["-DTARGET_USES_SMMU_PROXY"],
